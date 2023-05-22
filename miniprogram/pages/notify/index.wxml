@@ -1,0 +1,15 @@
+<scroll-view enhanced show-scrollbar="{{false}}" scroll-y>
+  <view class="notify-meta">
+    <view class="title">{{ notice.title}}</view>
+    <view class="extra">
+      <view class="author">{{ notice.creatorName }}</view>
+      <view class="datetime">{{ notice.createdAt }}</view>
+    </view>
+  </view>
+  <view class="notify-content">
+    <!-- 这个标签可以识别html标签 相当于vue的v-html -->
+    <rich-text
+      nodes="{{ notice.content }}"
+    ></rich-text>
+  </view>
+</scroll-view>

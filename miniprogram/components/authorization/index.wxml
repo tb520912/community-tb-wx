@@ -1,0 +1,2 @@
+<slot wx:if="{{ isLogin }}"></slot>
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "authorization": "/components/authorization/index"
+  },
+  "navigationBarTitleText": "个人信息"
+}
