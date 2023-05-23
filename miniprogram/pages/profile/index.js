@@ -1,18 +1,19 @@
 // pages/profile/index.ts
+// const app = getApp<IAppOption>()
+const pageStack = getCurrentPages()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    nickName: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
   },
 
   /**
@@ -62,5 +63,15 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  getUserNickName(ev) {
+    this.updateNickname(ev.detail.value)
+  },
+  async updateNickname (nickName) {
+    if (nickName === '') return
+    const {code} = await wx.http.put('/userInfo', {nickName})
+    if (code !== 10000) return wx.utils.toast('更新昵称失败')
+     // 借助于页面栈实例来更新 pages/my/index.wxml 中的昵称
+     pageStack[0].setData({nickName})
   }
 })

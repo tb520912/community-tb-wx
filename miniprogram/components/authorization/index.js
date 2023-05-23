@@ -6,6 +6,7 @@ Component({
     attached() {
       // 获取登录状态
       const isLogin = !!getApp().token
+      console.log(isLogin, 'isLogin');
       // 变更登录状态
       this.setData({
         isLogin
